@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  
+  db:
+    container_name: project_name
+    image: postgres:11.2
+    restart: "no"
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PWD} 
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - pgdata:/var/lib/postgresql/data 
+    ports:
+      - "5434:5432"
+
+volumes:
+  pgdata:
